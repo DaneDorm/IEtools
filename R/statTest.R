@@ -2,6 +2,8 @@
 #'@param dat a list of numerical data
 #'@param per what percent interval for CI, given as a decimal value
 #'
+#'@return A vector that gives the upper and lower confidence intervals
+#'
 #'@importFrom purrr map
 #'
 #'@export
@@ -27,7 +29,7 @@ stat_ci <- function(dat, per = .95) {
 #' @param trt the name of the column that labels each treatment
 #' @param value the name of the column that holds the values
 #'
-#'
+#' @return the result of the t test
 #'
 #' @export
 stat_ttest <- function(dat, trt, value) {
@@ -58,6 +60,8 @@ stat_ttest <- function(dat, trt, value) {
 #' @param trtB the name of the first column that labels each treatment, not needed for one way anova
 #' @param value the name of the column that holds the values
 #' @param twoway logical, is this a two way ANOVA or one way
+#'
+#' @return a tibble with all the ANOVA info, either one way or two way
 #'
 #' @import dplyr
 #' @importFrom stringr str_c

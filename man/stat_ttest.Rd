@@ -13,6 +13,9 @@ stat_ttest(dat, trt, value)
 
 \item{value}{the name of the column that holds the values}
 }
+\value{
+the result of the t test
+}
 \description{
 Performs a t test on a dataset to see if there is significant difference between means
 }

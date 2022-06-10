@@ -17,6 +17,9 @@ stat_anova(dat, trtA, trtB = NULL, value, twoway = FALSE)
 
 \item{twoway}{logical, is this a two way ANOVA or one way}
 }
+\value{
+a tibble with all the ANOVA info, either one way or two way
+}
 \description{
 Generates an ANOVA table for a given dataset with the associated P-values.
 }

@@ -11,6 +11,9 @@ stat_ci(dat, per = 0.95)
 
 \item{per}{what percent interval for CI, given as a decimal value}
 }
+\value{
+A vector that gives the upper and lower confidence intervals
+}
 \description{
 Create a Two Sided Confidence Interval for a dataset
 }

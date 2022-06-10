@@ -4,18 +4,7 @@
 \alias{graphFormat}
 \title{This function formats visuals for using general rules}
 \usage{
-graphFormat(viz, Title = NULL, Subtitle = NULL, X = NULL, Y = NULL)
-}
-\arguments{
-\item{viz}{the visualization object, created with ggplot}
-
-\item{Title}{a string for the title of the viz}
-
-\item{Subtitle}{a string for the subtitle of the viz}
-
-\item{X}{a string for the title of the x axis of the viz}
-
-\item{Y}{a string for the title of the y axis of the viz}
+graphFormat()
 }
 \value{
 a visualization
