@@ -1,0 +1,46 @@
+# Make this so it has the info about what this package does, and demos of each of the functions
+```{r}
+library(IEtools)
+test1 <- c(4,3,2,6,5,10)
+test2 <- rnorm(50, mean = 36, sd = 2)
+```
+```{r}
+bb <- readr::read_csv(here::here("BananaBread.csv"), col_names = TRUE) 
+colnames(bb) <- c("Pattern", "Treatment", "Value")
+rownames(bb) <- seq_along(1:nrow(bb))
+
+moth <- readr::read_csv(here::here("twan03.csv"), col_names = TRUE)
+moth <- moth %>%
+  pivot_longer(names_to = "Lure", values_to = "Count", cols = Scent:Chemical)
+  
+
+```
+
+```{r}
+stat_ci(bb$Value)
+
+```
+```{r}
+stat_anova(bb, trtA = Treatment, value = Value)
+
+
+```
+```{r}
+stat_anova(moth, trtA = Lure, trtB = Location, value = Count, twoway = TRUE)
+```
+```{r}
+test_2way <- aov(Count ~ Lure * Location, data = moth)
+# USe a plus instead of a star to remove interaction, 
+# Just one factor will create a one way anova
+
+summary(test_2way)
+```
+
+
+```{r}
+stat_ttest(bb, trt = Treatment, value = Value)
+```
+```{r}
+
+```
+

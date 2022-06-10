@@ -1,9 +1,9 @@
 #'This function formats visuals for using general rules
-#'@param  viz the visualization object, created with ggplot
-#'@param title a string for the title of the viz
-#'@param subtitle a string for the subtitle of the viz
-#'@param x a string for the title of the x axis of the viz
-#'@param y a string for the title of the y axis of the viz
+#'@param viz the visualization object, created with ggplot
+#'@param Title a string for the title of the viz
+#'@param Subtitle a string for the subtitle of the viz
+#'@param X a string for the title of the x axis of the viz
+#'@param Y a string for the title of the y axis of the viz
 #'
 #'@return a visualization
 #'
@@ -11,11 +11,11 @@
 #'@import extrafont
 #'
 #'@export
-ie_viz <- function(viz, title = NULL, subtitle = NULL, x = NULL, y = NULL) {
+graphFormat <- function(viz, Title = NULL, Subtitle = NULL, X = NULL, Y = NULL) {
 
   viz %>%
-    labs(x = x,
-         y = y,
+    labs(x = X,
+         y = Y,
          subtitle = subtitle,
          title = title) +
     theme(plot.title.position = "plot", # Moves title/subtitle to top left
