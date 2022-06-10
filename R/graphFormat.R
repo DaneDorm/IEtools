@@ -26,7 +26,7 @@ graphFormat <- function(viz) {
   return(viz)
 
 }
-#'@param viz the visualization object, created with ggplot
+
 #'@param Title a string for the title of the viz
 #'@param Subtitle a string for the subtitle of the viz
 #'@param X a string for the title of the x axis of the viz

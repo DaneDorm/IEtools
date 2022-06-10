@@ -36,6 +36,7 @@ ControlChart <- function(dat, value) {
     mutate(Obs = seq_along(1:nrow(dat))) %>%
     ggplot() +
     ylim(Xbar - stdev * 4, Xbar + stdev * 4) +
+    geom_point(mapping = aes(x = Obs, y = {{value}})) +
     geom_hline(yintercept = CL$Value[1], color = "red", size = 2) +
     geom_text(aes(0, CL$Value[1], label = "UCL", vjust = - 1), color = "red") +
     geom_hline(yintercept = CL$Value[2], color = "yellow", size = 2) +

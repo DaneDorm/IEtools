@@ -1,8 +1,10 @@
-# Make this so it has the info about what this package does, and demos of each of the functions
+# This is a package of Industrial Engineering Tools. This ReadMe file demos the functions that are one here. 
+### Loading in some tools and data
 ```{r}
 library(IEtools)
-test1 <- c(4,3,2,6,5,10)
-test2 <- rnorm(50, mean = 36, sd = 2)
+library(tidyverse)
+#test1 <- c(4,3,2,6,5,10)
+#test2 <- rnorm(50, mean = 36, sd = 2)
 ```
 ```{r}
 bb <- readr::read_csv(here::here("BananaBread.csv"), col_names = TRUE) 
@@ -15,11 +17,12 @@ moth <- moth %>%
   
 
 ```
-
+## This function creates a Confidence Interval
 ```{r}
 stat_ci(bb$Value)
 
 ```
+## This function creates an ANOVA Table, with an option for Two Way ANOVAs
 ```{r}
 stat_anova(bb, trtA = Treatment, value = Value)
 
@@ -27,19 +30,9 @@ stat_anova(bb, trtA = Treatment, value = Value)
 ```
 ```{r}
 stat_anova(moth, trtA = Lure, trtB = Location, value = Count, twoway = TRUE)
-```
-```{r}
-test_2way <- aov(Count ~ Lure * Location, data = moth)
-# USe a plus instead of a star to remove interaction, 
-# Just one factor will create a one way anova
 
-summary(test_2way)
 ```
-
-
-```{r}
-#stat_ttest(bb, trt = Treatment, value = Value)
-```
+### Loading in more data
 ```{r}
 obs <- readr::read_csv(here::here("dts_obs.csv"), col_names = TRUE) %>%
   select(-Element)
@@ -47,10 +40,11 @@ irreg <- readr::read_csv(here::here("dts_irreg.csv"), col_names = TRUE) %>%
   select(-Element)
 ```
 
-
+## This function takes observed times of a process and calculates the standard time for the job
 ```{r}
 stnd_time(obs, irreg = irreg, allow = 0.09)
 ```
+## These two functions solve typical Warehouse Decision making, deciding where to invest and still suppling the desired retailers
 ```{r}
 WH_model <- matrix(c(c(1,1,1,1,1,0,0,0,0),
                      c(1,0,1,0,0,0,1,0,1),
@@ -66,23 +60,25 @@ wh_cover(WH_model)
 wh_partition(WH_model)
 ```
 
-```{r}
-cash_flow(1000, i = .025, n = 24)
-```
+## This creates a visual of a cash flow for analysis
 ```{r}
 flow <- c(-30000, 8000, 8000, 8000, 8000, 8000, 15000)
 
-cash_viz(flow)
+cashviz <- cash_viz(flow)
+cashviz
 ```
 
-
+## This function creates a Control Chart, used for looking at quality assurance and controling variablility
 ```{r}
-ControlChart(bb, value = Value) 
+q <- ControlChart(bb, value = Value)
+q
 
 ```
+## This function compares different production strategies to meet forecasted demand
 ```{r}
 forecast = c(100, 120 ,140 , 104, 140, 140, 150, 100, 200)
 
-produce_compare(forecast, method = "Flex", inv0 = 50)
+p <- produce_compare(forecast, method = "Flex", inv0 = 50)
+p
 ```
 

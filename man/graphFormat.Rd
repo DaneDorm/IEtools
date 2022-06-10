@@ -4,7 +4,10 @@
 \alias{graphFormat}
 \title{This function formats visuals for using general rules}
 \usage{
-graphFormat()
+graphFormat(viz)
+}
+\arguments{
+\item{viz}{the visualization object, created with ggplot}
 }
 \value{
 a visualization
